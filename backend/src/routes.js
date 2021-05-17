@@ -1,10 +1,7 @@
 const router = require("express").Router();
 
-router.get("/",async(req,res)=>{
-    return res.json({
-        name:"Data"
-    });
+router.get('/',(req,res)=>{
+    res.end('working');
 })
 
 module.exports = router;
-
