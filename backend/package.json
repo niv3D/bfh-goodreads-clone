@@ -2,7 +2,7 @@
     "name": "bfh-goodreads-clone",
     "version": "0.0.1",
     "description": "good reads clone",
-    "main": "App.js",
+    "main": "app.js",
     "scripts": {
         "start": "node src/server.js",
         "dev": "nodemon src/server.js"
