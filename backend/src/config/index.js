@@ -1,6 +1,6 @@
-const dotenv = require("dotenv");
+const dotenv = require('dotenv');
 
-const envFile = dotenv.config({ path: "./src/config/.env" });
+const envFile = dotenv.config({ path: './src/config/.env' });
 
 if (!envFile || envFile.error) {
   throw new Error("Couldn't find .env file");
