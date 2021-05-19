@@ -6,11 +6,11 @@ router.get('/',(req,res)=>{
 });
 
 
-const register = require('./register');
+const register = require('./client/register');
 
 router.post('/register',register);
 
-const login = require('./login');
+const login = require('./client/login');
 
 router.post('/login',login);
 

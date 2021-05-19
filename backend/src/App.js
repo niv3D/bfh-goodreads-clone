@@ -11,6 +11,6 @@ const server = require('http').Server(app);
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
-app.use('/api',routes);
+app.use('/',routes);
 
 module.exports = server;
