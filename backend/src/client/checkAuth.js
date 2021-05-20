@@ -9,8 +9,9 @@ const checkAuth = (req,res,next)=>{
     
         next();
     } catch (error) {
-        return res.status(401).json({
-            messege: 'Auth failed'
+        return res.json({
+            messege: 'Auth failed',
+            status: false
         })
     }
 }

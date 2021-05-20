@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const checkAuth = require('./client/checkAuth');
 
+
 //Public Routes .....
 
 
@@ -24,12 +25,15 @@ router.post('/find', findBook);
 
 //Auth Routes .....
 
+const isAuthed = require("./client/isAuth");
+router.post('/isAuthed',checkAuth,isAuthed);
 
 const addbook = require('./client/addbook');
 router.post('/addbook',checkAuth,addbook);
 
 
 const { addReview, editReview , removeReview } = require('./client/handleReviews');
+
 
 
 router.post('/addreview', checkAuth, addReview);
