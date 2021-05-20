@@ -2,7 +2,7 @@ const users = require('../models/users');
 const bcrypt = require('bcryptjs');
 
 const register = async (req, res) => {
-
+  
   if (!req.body) return res.json({ status: false, type: "empty" });
 
   const checkUser = await users.find({ username: req.body.username });
@@ -15,11 +15,11 @@ const register = async (req, res) => {
   if (checkNumber.length > 0)
     return res.json({ status: false, type: "number exists" });
 
-  var stringpass = req.body.password + "";
+  const stringpass = req.body.password + "";
 
-  var hashedPassword = await bcrypt.hash(stringpass, 12);
+  const hashedPassword = await bcrypt.hash(stringpass, 12);
 
-  var user = new users({
+  const user = new users({
     name: req.body.name,
     number: req.body.number,
     sex: req.body.sex,
@@ -27,12 +27,11 @@ const register = async (req, res) => {
     password: hashedPassword,
   });
 
-  user.save(function (err, n) {
+    user.save(function (err, n) {
     if (err) return res.status(500).json({ error: err });
     console.log(n.username + " saved");
+    return res.status(200).json({ status: "Success! I think" });
   });
-
-  res.status(200).json({ status: "Success! I think" });
 
 };
 

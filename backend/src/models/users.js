@@ -13,9 +13,6 @@ const users = new Schema(
     password: {
       type: String,
       required: true,
-    },
-    token: {
-      type: String
     }
   },
   {
