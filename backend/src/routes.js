@@ -1,5 +1,5 @@
-const router = require("express").Router();
-const checkAuth = require("./client/checkAuth");
+const router = require('express').Router();
+const checkAuth = require('./client/checkAuth');
 
 //Public Routes .....
 
@@ -16,6 +16,11 @@ router.post('/register',register);
 const login = require('./client/login');
 router.post('/login',login);
 
+const { findBook, viewBooks, searchBook } = require('./public/searchBook');
+
+router.post('/search',searchBook);
+router.post('/view', viewBooks);
+router.post('/find', findBook);
 
 //Auth Routes .....
 
@@ -24,10 +29,11 @@ const addbook = require('./client/addbook');
 router.post('/addbook',checkAuth,addbook);
 
 
-const { addReview, editReview , removeReview } = require("./client/handleReviews");
+const { addReview, editReview , removeReview } = require('./client/handleReviews');
 
-router.post("/addreview", checkAuth, addReview);
-router.post("/editreview", checkAuth, editReview);
-router.post("/removereview", checkAuth, removeReview);
+
+router.post('/addreview', checkAuth, addReview);
+router.post('/editreview', checkAuth, editReview);
+router.post('/removereview', checkAuth, removeReview);
 
 module.exports = router;

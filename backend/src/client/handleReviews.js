@@ -37,16 +37,13 @@ const addReview = async (req, res) => {
 };
 
 const editReview = async (req, res) => {
-
-    //code later
+  //code later
 
   return res.json({ status: false });
 };
 
 const removeReview = async (req, res) => {
-
-
-   //code later
+  //code later
 
   return res.json({ status: false });
 };
