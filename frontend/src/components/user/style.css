@@ -1,5 +1,36 @@
-.User{
-    border: 1px solid burlywood;
-    height: 100vh;
-    background-color: cadetblue;
+.User {
+  border-radius: 20px;
+  margin: 6px;
+  flex: 5;
+  position: relative;
+  transition: 0.5s ease;
+  overflow: hidden;
+  background: inherit;
+}
+.User-container {
+  border-radius: 20px;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #ffffff1e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.User::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  background: inherit;
+}
+.User:hover,
+.User:active,
+.User:focus {
+  flex: 5;
 }

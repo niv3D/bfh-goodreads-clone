@@ -1,5 +1,5 @@
 .App {
-  display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: 1fr;
+  display: flex;
+  height: 100vh;
+  background-image: linear-gradient(to top, #ebbba7 0%, #cfc7f8 100%);
 }

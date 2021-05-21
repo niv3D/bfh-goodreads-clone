@@ -1,4 +1,5 @@
-.Routes{
-    border: 1px solid burlywood;
-    height: 100vh;
+.Routes {
+  flex: 3;
+  position: relative;
+  transition: 0.5s ease;
 }
