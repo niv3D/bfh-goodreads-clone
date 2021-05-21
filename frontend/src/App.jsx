@@ -1,4 +1,3 @@
-
 import "./App.css";
 import MainComponent from "./components/main";
 import RouteComponent from "./components/routes";

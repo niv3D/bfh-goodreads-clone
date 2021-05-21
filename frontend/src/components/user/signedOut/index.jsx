@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { Redirect } from "react-router";
 import api from "../../../service/api";
 import "./style.css";
 
@@ -7,7 +8,6 @@ function SignedOut() {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const [numberValid, setNumberValid] = useState(true);
-  const [sex, setSex] = useState("");
   const [username, setUsername] = useState("");
   const [usernameValid, setUsernameValid] = useState(true);
   const [password, setPassword] = useState("");
@@ -34,7 +34,12 @@ function SignedOut() {
     if (state === "login") {
       try {
         const res = await api.post("/login", { username, password });
-        if (res.data.status) setMessage("Success");
+        if (res.data.status){localStorage.setItem("currentUser", JSON.stringify(res.data));
+            if (localStorage.getItem("currentUser") == null) {
+              console.log("Save Error!");
+            }
+            if (state?.from) return <Redirect to={state.from} />;
+            else window.location.reload();}
         else {
           setMessage("Auth Error");
           setUsernameValid(false);
@@ -51,7 +56,7 @@ function SignedOut() {
         setMessage("Passwords not matching");
         return;
       }
-      if (name === "" || sex === "" || number === "") {
+      if (name === "" || number === "") {
         setMessage("Fill up boi");
         return;
       }
@@ -59,7 +64,6 @@ function SignedOut() {
         const res = await api.post("/register", {
           name,
           number,
-          sex,
           username,
           password,
         });
@@ -72,7 +76,7 @@ function SignedOut() {
         } else if (res.data.type === "number") {
           setNumberValid(false);
           setMessage("number taken");
-        }
+        } else setMessage("Unknown Error Occurred ");
       } catch (e) {
         setMessage("" + e);
       }
@@ -83,7 +87,10 @@ function SignedOut() {
     <>
       <div className="User-container">
         <div className="User-dp-container"></div>
-        <div className="User-login">
+        <div
+          className="User-login"
+          data-state={state === "login" ? "Log In" : "Sign Up"}
+        >
           <form onSubmit={handleSubmit}>
             {state === "login" ? (
               <>
@@ -116,6 +123,25 @@ function SignedOut() {
             ) : (
               <>
                 <input
+                  className="input-field"
+                  placeholder="Your Name"
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
+                />
+                <input
+                  className={
+                    numberValid ? "input-field" : "input-field has-error"
+                  }
+                  type="text"
+                  placeholder="Mobile Number"
+                  value={number}
+                  onChange={(e) => {
+                    setNumber(e.target.value);
+                  }}
+                />
+                <input
                   className={
                     usernameValid ? "input-field" : "input-field has-error"
                   }
@@ -142,54 +168,62 @@ function SignedOut() {
                     passwordValid ? "input-field" : "input-field has-error"
                   }
                   type="password"
-                  placeholder="password again"
+                  placeholder="re-enter password"
                   value={password2}
                   onChange={(e) => {
                     setPassword2(e.target.value);
                   }}
                 />
+                <button className="input-button" type="submit">
+                  Sign Up
+                </button>
               </>
             )}
           </form>
-          {message ? message : ""}
+          <span className="User-message">{message ? message : ""}</span>
         </div>
-        {state === "login" ? (
-          <div>
-            Don't have an account?{" "}
-            <button
-              onClick={() => {
-                setState("signup");
-                setMessage("");
-                setUsername("");
-                setUsernameValid(true);
-                setPassword("");
-                setPasswordValid(true);
-                setNumber("");
-                setNumberValid(false);
-                setName("");
-                setSex("");
-              }}
-            >
-              Create An Account
-            </button>
-          </div>
-        ) : (
-          <div>
-            Already have an Account?{" "}
-            <button
-              onClick={() => {
-                setState("login");
-                setMessage("");
-                setUsername("");
-                setUsernameValid(true);
-                setPassword("");
-                setPasswordValid(true);
-              }}
-            >
-              Login
-            </button>
-          </div>
-        )}
+
+        <div style={{ fontSize: "13px" }}>
+          {state === "login" ? (
+            <div>
+              Don't have an account?{" "}
+              <button
+                onClick={() => {
+                  setState("signup");
+                  setMessage("");
+                  setUsername("");
+                  setUsernameValid(true);
+                  setPassword("");
+                  setPassword2("");
+                  setPasswordValid(true);
+                  setNumber("");
+                  setNumberValid(true);
+                  setName("");
+                }}
+                className="input-button"
+              >
+                Sign Up
+              </button>
+            </div>
+          ) : (
+            <div>
+              Already have an Account?{" "}
+              <button
+                onClick={() => {
+                  setState("login");
+                  setMessage("");
+                  setUsername("");
+                  setUsernameValid(true);
+                  setPassword("");
+                  setPasswordValid(true);
+                }}
+                className="input-button"
+              >
+                Login
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );

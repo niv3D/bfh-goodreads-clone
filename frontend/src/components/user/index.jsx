@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import checkAuth from "../../service/auth";
+import SignedIn from "./signedIn";
 import SignedOut from "./signedOut";
 import "./style.css";
 
@@ -14,7 +15,7 @@ function UserComponent() {
     },[])
     return (
     <div className={window.location.pathname === "/" ? "User main" : "User closed"}>
-      {signed? <h1>signedIn</h1>:<SignedOut/>} 
+      {signed? <SignedIn/>:<SignedOut/>} 
     </div>
   );
 }

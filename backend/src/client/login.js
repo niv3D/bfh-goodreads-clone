@@ -17,7 +17,7 @@ const login = async (req, res) => {
         process.env.JWT_KEY,
         { expiresIn: "7d" }
       );
-      if (result) return res.json({ token: token, satus: true });
+      if (result) return res.json({ token: token, status: true });
     });
   });
 };

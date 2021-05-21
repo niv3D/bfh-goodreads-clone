@@ -8,12 +8,12 @@ const register = async (req, res) => {
   const checkUser = await users.find({ username: req.body.username });
 
   if (checkUser.length > 0)
-    return res.json({ status: false, type: "username exists" });
+    return res.json({ status: false, type: "username" });
 
   const checkNumber = await users.find({ number: req.body.number });
 
   if (checkNumber.length > 0)
-    return res.json({ status: false, type: "number exists" });
+    return res.json({ status: false, type: "number" });
 
   const stringpass = req.body.password + "";
 
@@ -22,7 +22,6 @@ const register = async (req, res) => {
   const user = new users({
     name: req.body.name,
     number: req.body.number,
-    sex: req.body.sex,
     username: req.body.username,
     password: hashedPassword,
   });
