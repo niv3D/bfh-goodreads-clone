@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import checkAuth from "../../service/auth";
 import BookDetails from "./pages/book";
+import LandingPage from "./pages/landing";
 
 function PrivateRoute({ component: Component, ...rest }) {
   const [loading, setLoading] = useState(true);
@@ -46,7 +47,6 @@ function PrivateRoute({ component: Component, ...rest }) {
 function MainComponent() {
   return (
     <div className="Main">
-
       <Router>
         <Switch>
           <PrivateRoute
@@ -57,7 +57,7 @@ function MainComponent() {
             }}
           />
           <Route exact path="/book/:isbn" component={BookDetails} />
-          <Route exact path="/" component={BookDetails} />
+          <Route exact path="/" component={LandingPage} />
         </Switch>
       </Router>
     </div>

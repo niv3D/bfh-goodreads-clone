@@ -1,40 +1,8 @@
-.User {
-  /* border-radius: 20px; */
-  margin: 6px;
-  width: 4.5%;
-  position: sticky;
-  top: 6px;
-  right: 0;
-  transition: 0.5s ease;
-  overflow: hidden;
-  height: calc(100vh - 12px);
-}
 .User-container {
   /* border-radius: 20px; */
-  position: relative;
-  z-index: 1;
   width: 100%;
   height: 100%;
-  border: 2px solid #ffffff1e;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.User::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  right: 0;
-  box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.2);
-  background: inherit;
-}
-.User:hover,
-.User:active,
-.User:focus {
-  width: 25%;
 }

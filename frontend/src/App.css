@@ -1,12 +1,52 @@
 .App {
-  display: flex;
-  grid-template-columns: 1fr 1fr;
-  min-height: 100vh;
   background-image: linear-gradient(to top, #ebbba7 0%, #cfc7f8 100%);
-}
-.Main-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: calc(96% - 12px);
+  /* background-color: #1c1c1c; */
+  width: 100vw;
   min-height: 100vh;
+  display: flex;
+}
+.User {
+  width: 4.5vw;
+  height: calc(100vh - 12px);
+  overflow: hidden;
+  transition: 0.5s ease;
+}
+.User:hover,
+.User:active,
+.User:focus {
+  width: 25vw;
+}
+.Main-wraper {
+  width: calc(95.5vw - 12px);
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 15fr 85fr;
+  grid-template-rows: 1fr 9fr;
+}
+.Header {
+  grid-column: 1/3;
+  grid-row: 1/2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.Filter {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+.Main {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  overflow: scroll;
+}
+.Main,
+.Filter,
+.Header,
+.User {
+  margin: 6px;
+  border: 2px solid #ffffff40;
+  box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.2);
 }
