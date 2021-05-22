@@ -1,6 +1,6 @@
 .book-tile {
   width: 270px;
-  margin: 18px;
+  margin: 17px;
   height: 45%;
-  border: 1px solid salmon;
+  background-color: rgba(0, 0, 0, 0.2);
 }
