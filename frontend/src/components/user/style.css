@@ -1,14 +1,16 @@
 .User {
-  border-radius: 20px;
+  /* border-radius: 20px; */
   margin: 6px;
-  flex: 1;
-  position: relative;
+  width: 4.5%;
+  position: sticky;
+  top: 6px;
+  right: 0;
   transition: 0.5s ease;
   overflow: hidden;
-  background: inherit;
+  height: calc(100vh - 12px);
 }
 .User-container {
-  border-radius: 20px;
+  /* border-radius: 20px; */
   position: relative;
   z-index: 1;
   width: 100%;
@@ -23,14 +25,16 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top: 0;
   right: 0;
   box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
   background: inherit;
 }
 .User:hover,
 .User:active,
 .User:focus {
-  flex: 5;
+  width: 25%;
 }

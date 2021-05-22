@@ -1,5 +1,12 @@
 .App {
   display: flex;
-  height: 100vh;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
   background-image: linear-gradient(to top, #ebbba7 0%, #cfc7f8 100%);
+}
+.Main-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: calc(96% - 12px);
+  min-height: 100vh;
 }

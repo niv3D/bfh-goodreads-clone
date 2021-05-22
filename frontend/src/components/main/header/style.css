@@ -1,0 +1,9 @@
+.Header {
+  display: flex;
+  min-height: 10%;
+  /* border-radius: 20px; */
+  position: relative;
+  box-shadow: inset 0 0 0 500px rgba(255, 255, 255, 0.2);
+  border: 2px solid #ffffff40;
+  margin: 6px;
+}

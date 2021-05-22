@@ -6,6 +6,7 @@ import "./style.css";
 function SignedOut() {
   const [state, setState] = useState("login");
   const [name, setName] = useState("");
+  const [nameValid, setNameValid] = useState(true);
   const [number, setNumber] = useState("");
   const [numberValid, setNumberValid] = useState(true);
   const [username, setUsername] = useState("");
@@ -21,6 +22,7 @@ function SignedOut() {
     setUsernameValid(true);
     setNumberValid(true);
     setPasswordValid(true);
+    setNameValid(true);
     if (username === "") {
       setUsernameValid(false);
       setMessage("Enter username");
@@ -34,13 +36,14 @@ function SignedOut() {
     if (state === "login") {
       try {
         const res = await api.post("/login", { username, password });
-        if (res.data.status){localStorage.setItem("currentUser", JSON.stringify(res.data));
-            if (localStorage.getItem("currentUser") == null) {
-              console.log("Save Error!");
-            }
-            if (state?.from) return <Redirect to={state.from} />;
-            else window.location.reload();}
-        else {
+        if (res.data.status) {
+          localStorage.setItem("currentUser", JSON.stringify(res.data));
+          if (localStorage.getItem("currentUser") == null) {
+            console.log("Save Error!");
+          }
+          if (state?.from) return <Redirect to={state.from} />;
+          else window.location.reload();
+        } else {
           setMessage("Auth Error");
           setUsernameValid(false);
           setPasswordValid(false);
@@ -51,13 +54,19 @@ function SignedOut() {
         setPasswordValid(false);
       }
     } else {
+      if (name === "") {
+        setNameValid(false);
+        setMessage("Enter Name");
+        return;
+      }
+      if (number === "") {
+        setNumberValid(false);
+        setMessage("Enter Mobile Number");
+        return;
+      }
       if (password !== password2) {
         setPasswordValid(false);
         setMessage("Passwords not matching");
-        return;
-      }
-      if (name === "" || number === "") {
-        setMessage("Fill up boi");
         return;
       }
       try {
@@ -123,7 +132,9 @@ function SignedOut() {
             ) : (
               <>
                 <input
-                  className="input-field"
+                  className={
+                    nameValid ? "input-field" : "input-field has-error"
+                  }
                   placeholder="Your Name"
                   value={name}
                   onChange={(e) => {

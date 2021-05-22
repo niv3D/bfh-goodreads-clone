@@ -1,13 +1,15 @@
 import "./App.css";
 import MainComponent from "./components/main";
-import RouteComponent from "./components/routes";
+import Header from "./components/main/header";
 import UserComponent from "./components/user";
 
 function App() {
   return (
     <div className="App">
-      <RouteComponent />
-      <MainComponent />
+      <div className="Main-wrapper">
+        <Header />
+        <MainComponent />
+      </div>
       <UserComponent />
     </div>
   );

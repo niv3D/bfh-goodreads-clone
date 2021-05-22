@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 import "./style.css";
 import {
   BrowserRouter as Router,
@@ -6,7 +6,8 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
-import checkAuth from '../../service/auth'
+import checkAuth from "../../service/auth";
+import BookDetails from "./pages/book";
 
 function PrivateRoute({ component: Component, ...rest }) {
   const [loading, setLoading] = useState(true);
@@ -42,39 +43,25 @@ function PrivateRoute({ component: Component, ...rest }) {
   );
 }
 
-
-
 function MainComponent() {
-    return (
-      <div className="Main">
-        <Router>
-          <Switch>
-            <PrivateRoute
-              exact
-              path="/addbook"
-              component={() => {
-                return <h1>signedIn</h1>;
-              }}
-            />
-            <Route
-              exact
-              path="/"
-              component={() => {
-                return <h1>main</h1>;
-              }}
-            />
-            <Route
-              exact
-              path="/2"
-              component={() => {
-                return <h1>main</h1>;
-              }}
-            />
-          </Switch>
-        </Router>
-      </div>
-    );
-    
+  return (
+    <div className="Main">
+
+      <Router>
+        <Switch>
+          <PrivateRoute
+            exact
+            path="/addbook"
+            component={() => {
+              return <h1>signedIn</h1>;
+            }}
+          />
+          <Route exact path="/book/:isbn" component={BookDetails} />
+          <Route exact path="/" component={BookDetails} />
+        </Switch>
+      </Router>
+    </div>
+  );
 }
 
 export default MainComponent;
