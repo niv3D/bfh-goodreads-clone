@@ -9,6 +9,7 @@ import {
 import checkAuth from "../../service/auth";
 import BookDetails from "./pages/book";
 import LandingPage from "./pages/landing";
+import Addbook from "./pages/addBook";
 
 function PrivateRoute({ component: Component, ...rest }) {
   const [loading, setLoading] = useState(true);
@@ -49,13 +50,7 @@ function MainComponent() {
     <div className="Main">
       <Router>
         <Switch>
-          <PrivateRoute
-            exact
-            path="/addbook"
-            component={() => {
-              return <h1>signedIn</h1>;
-            }}
-          />
+          <PrivateRoute exact path="/addbook" component={Addbook} />
           <Route exact path="/book/:isbn" component={BookDetails} />
           <Route exact path="/" component={LandingPage} />
         </Switch>

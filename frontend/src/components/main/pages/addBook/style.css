@@ -1,0 +1,57 @@
+.Addbook {
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+}
+.addbook-cover {
+  width: 25%;
+  height: 60%;
+  border: 1px solid salmon;
+  padding: 30px;
+}
+.addbook-container {
+  width: 75%;
+  min-height: 100%;
+  border: 1px solid saddlebrown;
+  padding: 30px;
+}
+.addbook-form {
+  display: table;
+  width: 60%;
+  height: 60%;
+}
+.addbook-field {
+  width: 80%;
+  display: table-cell;
+  height: 2.75em;
+  border: none;
+  outline: none;
+  margin-top: 0.25em;
+  margin-bottom: 1em;
+  border-radius: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  box-shadow: inset 0 0 35px 5px rgb(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0);
+}
+label {
+  display: table-cell;
+  font-size: 1.5em;
+}
+p {
+  display: table-row;
+}
+textarea {
+  display: table-cell;
+  border: none;
+  outline: none;
+  margin-top: 0.25em;
+  margin-bottom: 1em;
+  border-radius: 2em;
+  padding: 1em;
+  box-shadow: inset 0 0 35px 5px rgb(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0);
+  position: relative;
+  height: 10em;
+  width: 80%;
+}
