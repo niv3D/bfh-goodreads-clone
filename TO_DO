@@ -22,8 +22,8 @@
     3. Autor name _/
     4. Language _/
     5. Cover image _/
-    6. Description 
-    7. Link to purchase (Amazon, flipkart etc)
+    6. Description _/
+    7. Link to purchase (Amazon, flipkart etc)_/
     8. Year of publication _/
     9. Genre _/ - Novel, Essay, Fiction etc
 4. User should be able to see category page - by author, by language, by genre etc. 

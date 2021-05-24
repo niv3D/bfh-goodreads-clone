@@ -6,13 +6,11 @@
 .addbook-cover {
   width: 25%;
   height: 60%;
-  border: 1px solid salmon;
   padding: 30px;
 }
 .addbook-container {
   width: 75%;
   min-height: 100%;
-  border: 1px solid saddlebrown;
   padding: 30px;
 }
 .addbook-form {
@@ -47,11 +45,19 @@ textarea {
   outline: none;
   margin-top: 0.25em;
   margin-bottom: 1em;
-  border-radius: 2em;
+  border-radius: 1em;
   padding: 1em;
   box-shadow: inset 0 0 35px 5px rgb(255, 255, 255, 0.75);
   background-color: rgba(255, 255, 255, 0);
   position: relative;
   height: 10em;
   width: 80%;
+}
+.addbook-cover {
+  display: flex;
+  flex-direction: column;
+}
+.addbook-cover img {
+  height: 95%;
+  width: 100%;
 }

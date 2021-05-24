@@ -5,7 +5,10 @@ function Addbook() {
   return (
     <>
       <div className="Addbook">
-        <div className="addbook-cover"></div>
+        <div className="addbook-cover">
+          <img src="" />
+          <input type="file" />
+        </div>
         <div className="addbook-container">
           <form className="addbook-form">
             <h2>Add Book</h2>
@@ -14,7 +17,7 @@ function Addbook() {
               <input
                 className="addbook-field"
                 style={{ width: "30%" }}
-                type="text"
+                type="number"
               />
             </p>
             <p>
@@ -38,7 +41,7 @@ function Addbook() {
               <input
                 className="addbook-field"
                 style={{ width: "20%" }}
-                type="text"
+                type="number"
               />
             </p>
             <p>
@@ -54,6 +57,23 @@ function Addbook() {
                 Description :
               </label>
               <textarea />
+            </p>
+            <p>
+              <label>Link to purchase : </label>
+              <input
+                className="addbook-field"
+                placeholder="paste url here"
+                type="url"
+              />
+            </p>
+            <p>
+              <label></label>
+              <button
+                style={{ margin: "3em 2em 0 0" }}
+                className="input-button"
+              >
+                Add Book
+              </button>
             </p>
           </form>
         </div>
