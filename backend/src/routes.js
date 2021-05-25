@@ -31,6 +31,7 @@ router.post('/isAuthed',checkAuth,isAuthed);
 const addbook = require('./client/addbook');
 router.post('/addbook',checkAuth,addbook);
 
+router.post("/userfind", checkAuth, findBook);
 
 const { addReview, editReview , removeReview } = require('./client/handleReviews');
 

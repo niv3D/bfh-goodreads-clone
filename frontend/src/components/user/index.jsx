@@ -10,7 +10,7 @@ function UserComponent() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function auth() {
-      setsigned(await checkAuth());
+      setsigned(await (await checkAuth()).signedIn);
       setLoading(false);
     }
     auth();

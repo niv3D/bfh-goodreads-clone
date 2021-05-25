@@ -12,18 +12,18 @@ const checkAuth = async () => {
           headers: { Authorization: `Bearer ${jwt.token}` },
         }
       );
-      if (res.data.status) {
-        return true;
+      if (res.data.auth_status) {
+        return { loading: false, signedIn: true, token: jwt.token };
       } else {
         localStorage.removeItem("currentUser");
-        return false;
+        return { loading: false, signedIn: false };
       }
     } catch (e) {
       localStorage.removeItem("currentUser");
-      return false;
+      return { loading: false, signedIn: false };
     }
   } else {
-    return false;
+    return { loading: false, signedIn: false };
   }
 };
 

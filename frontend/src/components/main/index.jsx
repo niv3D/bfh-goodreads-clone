@@ -16,7 +16,7 @@ function PrivateRoute({ component: Component, ...rest }) {
 
   useEffect(() => {
     checkAuth().then((res) => {
-      setSignedIn(res);
+      setSignedIn(res.signedIn);
       setTimeout(() => {
         setLoading(false);
       }, [500]);
