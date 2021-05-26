@@ -9,6 +9,7 @@ function Header() {
         <h1 style={{ color: "#fff" }}>Quick-Books</h1>
         <form className="search-form" action={"/search/" + query}>
           <input
+            placeholder="search by name or ISBN"
             className="search-field"
             type="text"
             value={query}
@@ -16,9 +17,7 @@ function Header() {
               setQuery(e.target.value);
             }}
           />
-          <button className="search-button" type="submit">
-            ?
-          </button>
+          <button className="search-button" type="submit"></button>
         </form>
       </div>
     </>

@@ -147,6 +147,7 @@ function BookDetails({
                             name="rating"
                           />
                           <textarea
+                            style={{ backgroundColor: "#fff" }}
                             value={comment}
                             onChange={(e) => {
                               setComment(e.target.value);
