@@ -9,6 +9,8 @@ import checkAuth from "../../service/auth";
 import BookDetails from "./pages/book";
 import LandingPage from "./pages/landing";
 import Addbook from "./pages/addBook";
+import SearchPage from "./pages/search";
+import GenrePage from "./pages/genre";
 
 function PrivateRoute({ component: Component, ...rest }) {
   const [loading, setLoading] = useState(true);
@@ -51,7 +53,14 @@ function MainComponent() {
         <Switch>
           <PrivateRoute exact path="/addbook" component={Addbook} />
           <Route exact path="/book/:isbn" component={BookDetails} />
+          <Route exact path="/search/:query" component={SearchPage} />
           <Route exact path="/" component={LandingPage} />
+          <Route exact path="/genre/:genre" component={GenrePage} />
+          <Route
+            component={() => {
+              return <h1> 404 :[</h1>;
+            }}
+          />
         </Switch>
       </Router>
     </div>

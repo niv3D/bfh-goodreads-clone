@@ -12,10 +12,9 @@ const searchBook = async (req, res) => {
     })
     .sort({ avg_rating: -1 })
     .select("-_id");
+  if (findBooks.length === 0) return res.json({ status: false });
   return res.json({ status: true, data: findBooks });
 };
-
-
 
 const findBook = async (req, res) => {
   if (!req.body.ibn) return res.json({ status: false, type: "ibn" });
@@ -23,7 +22,9 @@ const findBook = async (req, res) => {
   if (!findBook) return res.json({ status: false, type: "empty" });
   if (req.userData) {
     if (req.userData.user_id) {
-      const user = await users.findById(req.userData.user_id).select("-password");
+      const user = await users
+        .findById(req.userData.user_id)
+        .select("-password");
       if (!user) return res.json({ status: false, type: "empty" });
       let isReviewed;
       let myReviewID;
@@ -83,4 +84,3 @@ const viewBooks = async (req, res) => {
 };
 
 module.exports = { findBook, viewBooks, searchBook };
-

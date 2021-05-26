@@ -7,13 +7,25 @@ function Filter() {
       <div className="Filter">
         <div className="Filter-genre">
           Genre :
+          <a href="/">
+            <button>all</button>
+          </a>
           <br />
-          <button>romance</button>
-          <button>romance</button>
-          <button>romance</button>
-          <button>romance</button>
-          <button>romance</button>
-          <button>romance</button>
+          <a href="/genre/romance">
+            <button>romance</button>
+          </a>
+          <a href="/genre/action">
+            <button>action</button>
+          </a>
+          <a href="/genre/fiction">
+            <button>fiction</button>
+          </a>
+          <a href="/genre/adventure">
+            <button>adventure</button>
+          </a>
+          <a href="/genre/mystery">
+            <button>mystery</button>
+          </a>
         </div>
 
         <div className="Filter-genre">

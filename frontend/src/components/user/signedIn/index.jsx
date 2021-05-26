@@ -16,6 +16,9 @@ function SignedIn() {
         >
           Sign Out
         </button>
+        <a href="/addbook/">
+          <button className="input-button">Add Book</button>
+        </a>
       </div>
     </div>
   );

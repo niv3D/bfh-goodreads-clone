@@ -20,7 +20,7 @@ const addBook = async (req, res) => {
       genre: req.body.genre,
     });
     const addedUser = await users.findById(req.userData.user_id);
-    if (!addedUser) return res.json({ status: true, type: "userdoesntexist" });
+    if (!addedUser) return res.json({ status: false, type: "userdoesntexist" });
     else addedUser.books.added.push(newBook._id);
     try {
       await newBook.save();
