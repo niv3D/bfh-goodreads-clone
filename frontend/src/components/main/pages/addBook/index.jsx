@@ -76,7 +76,7 @@ function Addbook() {
       setMessege("No purchase url !");
       return;
     }
-    let cover_img = "";
+    let cover_img = "/dummy.jpg";
     if (imgUrl !== null) {
       let body = new FormData();
       body.set("key", "43f9e6a0ce735567a97229ceb1fa8ad6");
