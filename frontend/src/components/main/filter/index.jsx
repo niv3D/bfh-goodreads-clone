@@ -28,7 +28,7 @@ function Filter() {
           </a>
         </div>
 
-        <div className="Filter-genre">
+        {/* <div className="Filter-genre">
           Language :
           <br />
           <button></button>
@@ -37,7 +37,7 @@ function Filter() {
           Author :
           <br />
           <button></button>
-        </div>
+        </div> */}
       </div>
     </>
   );
