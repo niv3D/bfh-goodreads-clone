@@ -6,7 +6,7 @@ function Header() {
   return (
     <>
       <div className="Header">
-        <h1 style={{ color: "#fff" }}>Quick-Books</h1>
+        <h1 style={{ color: "#fff" }}>QuickBooks</h1>
         <form className="search-form" action={"/search/" + query}>
           <input
             placeholder="search by name or ISBN"

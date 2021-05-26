@@ -219,7 +219,7 @@ function BookDetails({
                   Genre :{" "}
                   {data.data.genre.map((genre, index) => (
                     <a key={index} href={`/genre/${genre}`}>
-                      {genre}
+                      <b>{genre}</b>
                       {index !== data.data.genre.length - 1 ? "," : ""}
                     </a>
                   ))}
