@@ -6,31 +6,31 @@ function Filter() {
     <>
       <div className="Filter">
         <div className="Filter-genre">
-          Genre :
+          Genre : <br/>
           <a href="/">
-            <button>all</button>
+            <button className="input-button">all</button>
           </a>
           <br />
           <a href="/genre/romance">
-            <button>romance</button>
+            <button className="input-button">romance</button>
           </a>
           <a href="/genre/action">
-            <button>action</button>
+            <button className="input-button">action</button>
           </a>
           <a href="/genre/fiction">
-            <button>fiction</button>
+            <button className="input-button">fiction</button>
           </a>
           <a href="/genre/adventure">
-            <button>adventure</button>
+            <button className="input-button">adventure</button>
           </a>
           <a href="/genre/mystery">
-            <button>mystery</button>
+            <button className="input-button">mystery</button>
           </a>
           <a href="/genre/Meditation">
-            <button>meditation</button>
+            <button className="input-button">meditation</button>
           </a>
           <a href="/genre/Self-Help">
-            <button>self help</button>
+            <button className="input-button">self help</button>
           </a>
         </div>
 

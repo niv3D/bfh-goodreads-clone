@@ -19,35 +19,43 @@ function LandingPage() {
   }, []);
   return (
     <>
-      {data
-        ? data.status
-          ? data.data.map((book, index) => (
-              <div key={index} className="book-tile">
-                <a href={"/book/" + book.ibn}>
-                  <img src={book.cover_img} />
+      {data ? (
+        data.status ? (
+          data.data.map((book, index) => (
+            <div
+              key={index}
+              className="book-tile"
+              style={{ backgroundImage: `url(${book.cover_img}` }}
+            >
+              <a href={"/book/" + book.ibn}>
+                <div className="book-details">
+                  <div className="book-overview">
+                    <p className="book-name">
+                      <h2>{book.title}</h2>
+                      <b>{book.author}</b>
+                    </p>
 
-                  <div className="book-details">
-                    <div className="book-overview">
-                      <p className="book-name">
-                        <h2>{book.title}</h2>
-                        <b>{book.author}</b>
-                      </p>
-
-                      <p className="book-rating">
-                        <h2>{book.avg_rating}</h2>
-                        <b>({book.reviews.length})</b>
-                      </p>
-                    </div>
-                    <p className="book-description">
-                      <b>Description :</b> <br />
-                      {book.description}
+                    <p className="book-rating">
+                      <h2>{book.avg_rating}</h2>
+                      <b>({book.reviews.length})</b>
                     </p>
                   </div>
-                </a>
-              </div>
-            ))
-          : "No books"
-        : "please wait"}
+                  <p className="book-description">
+                    <b>Description :</b> <br />
+                    {book.description}
+                  </p>
+                </div>
+              </a>
+            </div>
+          ))
+        ) : (
+          "No books"
+        )
+      ) : (
+        <>
+         <h1>Please wait</h1>
+        </>
+      )}
     </>
   );
 }

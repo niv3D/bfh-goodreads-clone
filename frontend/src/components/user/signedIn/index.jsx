@@ -5,7 +5,9 @@ import "./style.css";
 function SignedIn() {
   return (
     <>
-      <h4>&nbsp; &nbsp;options</h4>
+      <h4 style={{ width: "100%", textAlign: "center", marginTop: "12px" }}>
+        Options
+      </h4>
       <div className="User-container">
         <div className="User-dp-container"></div>
         <div className="User-login">

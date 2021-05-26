@@ -17,7 +17,6 @@ function Header() {
               setQuery(e.target.value);
             }}
           />
-          <button className="search-button" type="submit"></button>
         </form>
       </div>
     </>

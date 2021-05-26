@@ -196,6 +196,7 @@ function BookDetails({
             </div>
             <div className="Book-description">
               <p>
+                <h3>{data.data.title}</h3>
                 <h4>Description : </h4>
                 <br />
                 {data.data.description}
@@ -226,7 +227,10 @@ function BookDetails({
                 </label>
                 <br />
                 <label>
-                  Buy At : <a href={data.data.buy_url}> Amazon </a>
+                  Buy At :{" "}
+                  <a href={data.data.buy_url}>
+                    <b>Amazon</b>
+                  </a>
                 </label>
               </p>
             </div>
@@ -246,7 +250,7 @@ function BookDetails({
                           name="rating"
                         />
                       </div>{" "}
-                      <span style={{ color: "rgb(123 123 123)" }}>
+                      <span style={{ color: "rgb(255 255 255)" }}>
                         {data.data.avg_rating}
                       </span>
                       <span style={{ color: "#000", marginLeft: "10px" }}>

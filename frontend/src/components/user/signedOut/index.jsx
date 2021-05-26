@@ -94,7 +94,9 @@ function SignedOut() {
 
   return (
     <>
-      <h4>&nbsp; &nbsp;{state}</h4>
+      <h4 style={{ width: "100%", textAlign: "center", marginTop: "12px" }}>
+        {state}
+      </h4>
       <div className="User-container">
         <div className="User-dp-container"></div>
         <div

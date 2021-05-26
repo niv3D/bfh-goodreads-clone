@@ -25,6 +25,7 @@ function Addbook() {
   const [imgUrl, setImgUrl] = useState(null);
   const [preview, setPreview] = useState(null);
   const logo_up = React.useRef(null);
+  const [disable, setDisable] = useState(false);
 
   const handleBook = async (e) => {
     e.preventDefault();
@@ -36,44 +37,53 @@ function Addbook() {
     setGenreValid(true);
     setDescriptionValid(true);
     setLinkValid(true);
+    setDisable(true);
     if (ibn === "") {
       setIbnValid(false);
       setMessege("Invalid ISBN !");
+      setDisable(false);
       return;
     }
     if (title === "") {
       setTitleValid(false);
       setMessege("Title empty !");
+      setDisable(false);
       return;
     }
     if (author === "") {
       setAuthorValid(false);
       setMessege("Author empty !");
+      setDisable(false);
       return;
     }
     if (language === "") {
       setLanguageValid(false);
       setMessege("Language empty !");
+      setDisable(false);
       return;
     }
     if (year === "" || year < 1000) {
       setYearValid(false);
       setMessege("Invalid year !");
+      setDisable(false);
       return;
     }
     if (genre === "") {
       setGenreValid(false);
       setMessege("Genre empty !");
+      setDisable(false);
       return;
     }
     if (description === "") {
       setDescriptionValid(false);
       setMessege("No description !");
+      setDisable(false);
       return;
     }
     if (buy_url === "") {
       setLinkValid(false);
       setMessege("No purchase url !");
+      setDisable(false);
       return;
     }
     let cover_img = "/dummy.jpg";
@@ -114,17 +124,22 @@ function Addbook() {
       );
       if (res.data.status) {
         setMessege("Book Added");
+        setDisable(false);
       } else if (res.data.type === "empty") {
         setIbnValid(false);
         setMessege("Check ISBN !");
+        setDisable(false);
       } else if (res.data.type === "exists") {
         setMessege("Book already exists !");
+        setDisable(false);
       } else if (res.data.type === "userdoesntexist") {
         setMessege("Please login again !");
       } else if (res.data.type === "save") {
         setMessege("Book not added !");
+        setDisable(false);
       }
     } catch (e) {
+      setDisable(false);
       setMessege("" + e);
     }
   };
@@ -151,7 +166,12 @@ function Addbook() {
             }}
           />
 
-          <button onClick={() => logo_up.current.click()}>Upload Image</button>
+          <button
+            className="input-button"
+            onClick={() => logo_up.current.click()}
+          >
+            Upload Image
+          </button>
         </div>
         <div className="addbook-container">
           <form className="addbook-form" onSubmit={handleBook}>
@@ -269,6 +289,7 @@ function Addbook() {
               <button
                 style={{ margin: "3em 2em 0 0" }}
                 className="input-button"
+                disabled={disable}
                 type="submit"
               >
                 Add Book
