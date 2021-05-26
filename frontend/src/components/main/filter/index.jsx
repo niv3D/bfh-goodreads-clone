@@ -26,6 +26,12 @@ function Filter() {
           <a href="/genre/mystery">
             <button>mystery</button>
           </a>
+          <a href="/genre/Meditation">
+            <button>meditation</button>
+          </a>
+          <a href="/genre/Self-Help">
+            <button>self help</button>
+          </a>
         </div>
 
         {/* <div className="Filter-genre">

@@ -6,7 +6,6 @@
   margin-top: 20%;
   margin-bottom: 20%;
   transition: 0.5s ease;
-  visibility: hidden;
 }
 .User:hover .User-dp-container {
   width: 125px;

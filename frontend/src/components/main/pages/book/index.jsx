@@ -157,7 +157,7 @@ function BookDetails({
                           />
                           <button
                             style={{ marginTop: "15px" }}
-                            className="genreLikeButton bookLiked"
+                            className="input-button"
                             onClick={submitReview}
                           >
                             Submit
