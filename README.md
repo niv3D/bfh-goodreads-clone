@@ -17,11 +17,6 @@ BFH/recipFmcChBKD5eeV/2021
 
 [https://drive.google.com/drive/folders/15ZCYpIuNXxWFs86KUXKOPhteXqUiyaw-?usp=sharing]
 
-## How it Works ?
-
-1. front end sends request
-2. backend response with data
-3. page render
 ## Libraries used
 
 ## Dependencies Used
